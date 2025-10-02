@@ -7,6 +7,10 @@ export default {
     description: "The Lunar Reconnaissance Orbiter Camera (LROC) aboard NASA’s LRO spacecraft has been mapping the Moon in unprecedented detail. Its dual cameras provide both wide-angle and high-resolution views, supporting landing site analysis and lunar science.",
     url_badge: "/stickers/lro-lroc.webp"
   },
+  "Apollo 11": {
+    description: "The Apollo 11 mission was a historic milestone whose main objective was to land humans on the Moon and return them safely to Earth. It was the first time humanity set foot on another celestial body, marking a turning point in space exploration.",
+    url_badge: "/stickers/apollo11.webp"
+  },
   "Apollo 12": {
     description: "Apollo 12 was the second mission to land humans on the Moon. It demonstrated pinpoint landing capability and brought back valuable samples from the Ocean of Storms, furthering our understanding of lunar composition and surface processes.",
     url_badge: "/stickers/apollo12.webp"
