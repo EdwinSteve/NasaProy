@@ -11,7 +11,7 @@ export default function Navbar() {
       </div>
 
       <ul className='links'>
-        <li className='link'><Heart/> Favoritos</li>
+        <li className='link'><Heart/> Favorites</li>
         <li className='link'><User/> Login</li>
       </ul>
     </nav>

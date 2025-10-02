@@ -1,10 +1,10 @@
 import './Styles/Greet.css';
 
-export default function Greet() {
+export default function Greet({ title, message }) {
   return (
     <section className='greet'>
-      <h1>Cosmic Gallery</h1>
-      <p>Explore stunning images captured by NASA missions across the cosmos.<br/> Each card represents a unique glimpse into the universe.</p>
+      <h1>{title}</h1>
+      <p>{message}</p>
     </section>
   );
 }

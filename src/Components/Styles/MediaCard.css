@@ -1,16 +1,57 @@
 .card {
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
+  perspective: 1000px;
+  width: 100%;
+  height: 500px;
+  position: relative;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  color: var(--card-text-grey);
   border: var(--muted) 1px solid;
   border-radius: 8px;
   background-color: var(--card);
-  color: var(--card-text-grey);
+  padding: 24px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.card-front {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.card:hover {
+.card-front:hover {
   transform: translateY(-4px);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  color: var(--card-text-grey);
+  overflow-y: auto;
 }
 
 span {
@@ -51,6 +92,10 @@ span {
 
 img:hover {
   transform: scale(1.05);
+}
+
+.sticker-mission {
+  width: 180px;
 }
 
 .card-info {

@@ -1,0 +1,79 @@
+.container {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 4rem auto;
+  width: 450px;
+  color: var(--card-text-grey);
+  border: var(--muted) 1px solid;
+  border-radius: 8px;
+  background-color: var(--card);
+  padding: 24px;
+  font-size: 16px;
+  color: var(--pild-text);
+}
+
+.container h3 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  font-family: var(--space-grotesk);
+}
+
+.container form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.container form label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.container form label span {
+  cursor: pointer;
+  font-size: 0.8rem;
+  text-decoration: underline;
+}
+
+.container form input {
+  font: inherit;
+  padding: 12px 8px;
+  background: transparent;
+  border-radius: 8px;
+  border: var(--muted) 1px solid;
+  outline: none;
+  color: inherit;
+}
+
+.container form input:focus {
+  outline: none;
+  box-shadow: none;
+  border: 1px solid var(--blue);
+}
+
+.btn-form {
+  background-color: var(--blue);
+}
+
+.btn-form:hover {
+  background-color: var(--blue-hover);
+}
+
+.viewer {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.viewer span {
+  cursor: pointer;
+  color: var(--blue);
+}

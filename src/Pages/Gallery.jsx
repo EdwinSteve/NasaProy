@@ -80,7 +80,10 @@ export default function Gallery() {
 
   return (
     <>
-      <Greet />
+      <Greet title={'Cosmic Gallery'} message={<>
+        Explore stunning images captured by NASA missions across the cosmos.<br />
+        Each card represents a unique glimpse into the universe.
+      </>}/>
       <ContainerMediaCard>
         {dataList.map((item) => (
           <MediaCard key={item._id} data={item} />
