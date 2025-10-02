@@ -1,0 +1,17 @@
+.greet {
+  margin: 24px 0;
+}
+
+.greet h1 {
+  font-family: var(--space-grotesk);
+  margin-bottom: 12px;
+  font-size: 3rem;
+  color: var(--title);
+}
+
+.greet p {
+  padding: 12px;
+  font-family: var(--inter);
+  font-size: 24px; 
+  color: white; 
+}

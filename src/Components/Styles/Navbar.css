@@ -1,0 +1,49 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 18px 32px;
+  display: flex;
+  color: white;
+  font-family: var(--inter);
+  border-bottom: var(--muted) 1px solid;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.navbar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+img {
+  width: 32px;
+}
+
+.links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.link {
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.link:hover {
+  color: white;
+  background-color: var(--button);
+}
+
+.navbar h3 {
+  font-family: var(--space-grotesk);
+}
