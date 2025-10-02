@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './Styles/Login.css'
+import { Link } from 'react-router-dom';
 
 export default function Login() {
   const [isLogin, setIsLogin] = useState(true);
@@ -16,7 +17,7 @@ export default function Login() {
         <label for="email">Email</label>
         <input type="email" id="email" name="email" required />
 
-        <label for="password">Password {isLogin && <span>Forgot your password?</span>}</label>
+        <label for="password">Password {isLogin && <Link to='/recovery-pass'><span>Forgot your password?</span></Link>}</label>
         <input type="password" id="password" name="password" required />
 
       </form>

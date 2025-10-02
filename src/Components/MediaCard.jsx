@@ -49,7 +49,7 @@ export default function MediaCard({ data }) {
         </div>
 
         <div className='card-back'>
-          <img className='sticker-mission' src='/stickers/apollo11.png' />
+          <img className='sticker-mission' src='/stickers/shadowcam.webp' />
           <p>
             The Apollo 11 mission was a historic milestone whose main objective was to land humans on the Moon and return them safely to Earth. It was the first time humanity set foot on another celestial body, marking a turning point in space exploration.
           </p>

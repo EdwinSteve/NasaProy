@@ -1,4 +1,5 @@
-import { Heart, User } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ChevronFirst, Heart, User } from 'lucide-react';
 import './Styles/Navbar.css';
 
 export default function Navbar() {
@@ -7,12 +8,19 @@ export default function Navbar() {
       <div className='navbar-header'>
         <img src="/space_apps.jpg" alt="logo space apps" />
         <img src="/neiva.png" alt="bandera neiva" />
-        <h3>Cosmic Gallery</h3>
+        <Link to="/">
+          <h3>Cosmic Gallery</h3>
+        </Link>
       </div>
 
       <ul className='links'>
-        <li className='link'><Heart/> Favorites</li>
-        <li className='link'><User/> Login</li>
+        <Link to="/fav">
+          <li className='link'><Heart/> Favorites</li>
+        </Link >
+        <Link to="/login">
+          <li className='link'><User/> Login</li>
+        </Link>
+        <li className='link'><ChevronFirst/>Logout</li>
       </ul>
     </nav>
   );

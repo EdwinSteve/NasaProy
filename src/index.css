@@ -25,7 +25,16 @@
 }
 
 body {
+  text-decoration: none;
   margin: 0;
   font-family: var(--monospace);
   background-color: var(--background);
+}
+
+a,
+a:visited,
+a:active,
+a:hover {
+  text-decoration: none;
+  color: inherit;
 }
