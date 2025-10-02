@@ -77,3 +77,7 @@
   cursor: pointer;
   color: var(--blue);
 }
+
+.error {
+  color: var(--error);
+}

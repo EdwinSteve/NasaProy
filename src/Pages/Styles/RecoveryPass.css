@@ -65,3 +65,7 @@
 .btn-form:hover {
   background-color: var(--blue-hover);
 }
+
+.error {
+  color: var(--error);
+}

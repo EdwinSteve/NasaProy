@@ -1,26 +1,36 @@
 import { Link } from 'react-router-dom';
 import { ChevronFirst, Heart, User } from 'lucide-react';
 import './Styles/Navbar.css';
+import hasAuthCookie from '../utils/hasCookie';
+import { logoutUser } from '../Services/auth';
 
 export default function Navbar() {
+  const isAuthenticated = hasAuthCookie();
+
   return (
     <nav className='navbar'>
       <div className='navbar-header'>
-        <img src="/space_apps.jpg" alt="logo space apps" />
-        <img src="/neiva.png" alt="bandera neiva" />
+        <img src="/space_apps.jpg" alt="icon space apps" />
+        <img src="/neiva.png" alt="neiva flag" />
         <Link to="/">
           <h3>Cosmic Gallery</h3>
         </Link>
       </div>
 
       <ul className='links'>
-        <Link to="/fav">
-          <li className='link'><Heart/> Favorites</li>
-        </Link >
-        <Link to="/login">
-          <li className='link'><User/> Login</li>
-        </Link>
-        <li className='link'><ChevronFirst/>Logout</li>
+        {isAuthenticated && (
+          <Link to="/fav">
+            <li className='link'><Heart /> Favorites</li>
+          </Link>
+        )}
+        {!isAuthenticated && (
+          <Link to="/login">
+            <li className='link'><User /> Login</li>
+          </Link>
+        )}
+        {isAuthenticated && (
+          <li className='link' onClick={() => logoutUser()}><ChevronFirst /> Logout</li>
+        )}
       </ul>
     </nav>
   );
