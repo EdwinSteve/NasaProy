@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import './Styles/Login.css'
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { loginUser, registerUser } from '../Services/auth';
 import { requestRecoveryCode } from '../Services/recovery';
+import AuthContext from '../Context/AuthContext';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -16,10 +17,12 @@ export default function Login() {
     trigger,
     reset
   } = useForm();
+  const { setIsAuthenticated } = useContext(AuthContext);
 
   const onSubmit = async (data) => {
     if (isLogin) {
       await loginUser(data.email, data.password);
+      await setIsAuthenticated(true);
       navigate('/');
     } else {
       await registerUser(data.email, data.password);

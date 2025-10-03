@@ -6,6 +6,7 @@ import Login from './Pages/Login';
 import RecoveryPass from './Pages/RecoveryPass';
 import Navbar from './Components/Navbar';
 import './App.css'
+import AuthProvider from './Context/AuthProvider';
 
 const AppRoutes = () => {
   let routes = useRoutes([
@@ -21,10 +22,12 @@ const AppRoutes = () => {
 
 function App() {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <AppRoutes />
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Navbar />
+        <AppRoutes />
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
