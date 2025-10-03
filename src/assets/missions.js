@@ -1,7 +1,7 @@
 export default {
   "KARI ShadowCam": {
     description: "The KARI ShadowCam mission, in collaboration with NASA, focuses on capturing high-resolution images of permanently shadowed regions on the Moon. These areas, untouched by sunlight, may hold clues to water ice deposits and the Moon’s geological history.",
-    url_badge: "/stickers/kari-shadowcam.webp"
+    url_badge: "/stickers/shadowcam.webp"
   },
   "LRO LROC": {
     description: "The Lunar Reconnaissance Orbiter Camera (LROC) aboard NASA’s LRO spacecraft has been mapping the Moon in unprecedented detail. Its dual cameras provide both wide-angle and high-resolution views, supporting landing site analysis and lunar science.",
