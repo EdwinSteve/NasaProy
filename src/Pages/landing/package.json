@@ -1,0 +1,19 @@
+{
+  "name": "threejstuto",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dat.gui": "^0.7.9",
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}
