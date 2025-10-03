@@ -1,4 +1,4 @@
-import { BrowserRouter, useRoutes } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Gallery from './Pages/Gallery';
 import Landing from './Pages/Landing';
 import Fav from './Pages/Fav';
@@ -8,26 +8,28 @@ import Navbar from './Components/Navbar';
 import './App.css'
 import AuthProvider from './Context/AuthProvider';
 
-const AppRoutes = () => {
-  let routes = useRoutes([
-    { path: '/', element: <Landing /> },
-    { path: '/gallery', element: <Gallery /> },
-    { path: '/fav', element: <Fav /> },
-    { path: '/login', element: <Login /> },
-    { path: '/recovery-pass', element: <RecoveryPass /> }
-  ]);
-
-  return routes;
+function AppLayout() {
+  return (
+    <AuthProvider>
+      <Navbar />
+      <Routes>
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/fav" element={<Fav />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/recovery-pass" element={<RecoveryPass />} />
+      </Routes>
+    </AuthProvider>
+  );
 }
 
 function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter>
-        <Navbar />
-        <AppRoutes />
-      </BrowserRouter>
-    </AuthProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/*" element={<AppLayout />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
