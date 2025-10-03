@@ -1,0 +1,172 @@
+/* --- FAB --- */
+.filter-fab {
+  position: fixed;
+  right: 1rem;
+  bottom: 4rem;
+  z-index: 1001;
+  appearance: none;
+  border: 1px solid #3a3a3a;
+  background: #1f1f1f;
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.7rem 1rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 120ms ease, background 120ms ease, box-shadow 120ms ease;
+  box-shadow: 0 4px 14px rgba(0,0,0,.35);
+}
+.filter-fab:hover { background: #2a2a2a; }
+.filter-fab:active { transform: translateY(1px); }
+
+/* --- Overlay --- */
+.filter-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+  z-index: 1000;
+}
+.filter-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* --- Right Side Drawer --- */
+.filters-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: min(92vw, 380px);
+  background: #111;
+  color: #fff;
+  border-left: 1px solid #2a2a2a;
+  transform: translateX(100%);
+  transition: transform 220ms ease;
+  z-index: 1002;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  box-shadow: -8px 0 24px rgba(0,0,0,.35);
+}
+.filters-drawer.open {
+  transform: translateX(0%);
+}
+
+/* Header / Footer */
+.drawer-header,
+.drawer-footer {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid #222;
+}
+.drawer-footer {
+  border-top: 1px solid #222;
+  border-bottom: none;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+/* Title and close button */
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.drawer-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.icon-btn {
+  background: transparent;
+  color: #ddd;
+  border: 1px solid #3a3a3a;
+  border-radius: 8px;
+  padding: 0.35rem 0.55rem;
+  cursor: pointer;
+}
+.icon-btn:hover { background: #222; }
+
+/* Scrollable content */
+.drawer-content {
+  overflow-y: auto;
+  padding: 1rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+/* Filter fields */
+.filter-field {
+  display: flex;
+  flex-direction: column;
+}
+.filter-field.w-narrow {
+  max-width: 160px;
+}
+
+.filter-field label {
+  font-size: 0.8rem;
+  color: #cfcfcf;
+  margin-bottom: 0.35rem;
+}
+
+.filter-field input[type="text"],
+.filter-field input[type="date"],
+.filter-field input[type="number"] {
+  background: #121212;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 0.5rem 0.7rem;
+  outline: none;
+}
+.filter-field input:focus {
+  border-color: #7aa2ff;
+  box-shadow: 0 0 0 2px rgba(122,162,255,0.15);
+}
+
+/* Date range */
+.filter-dates {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.date-sep { color: #888; }
+
+/* Buttons */
+.btn-primary,
+.btn-secondary {
+  appearance: none;
+  border-radius: 8px;
+  padding: 0.55rem 0.9rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 120ms ease, transform 120ms ease, box-shadow 120ms ease;
+}
+
+.btn-primary {
+  background: #fe3c6d;
+  color: #fff;
+}
+.btn-primary:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 2px 8px rgba(254,60,109,.35);
+}
+.btn-primary:active { transform: translateY(1px); }
+
+.btn-secondary {
+  background: #1f1f1f;
+  color: #ddd;
+  border-color: #3a3a3a;
+}
+.btn-secondary:hover { background: #272727; }
+.btn-secondary:active { transform: translateY(1px); }
+
+/* Responsive: decrease width on mobiles */
+@media (max-width: 420px) {
+  .filters-drawer {
+    width: 96vw;
+  }
+}
