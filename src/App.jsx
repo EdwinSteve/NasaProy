@@ -14,7 +14,7 @@ function AppLayout() {
       <Navbar />
       <Routes>
         <Route path="/gallery" element={<Gallery />} />
-        <Route path="/fav" element={<Fav />} />
+        <Route path="/favorites" element={<Fav />} />
         <Route path="/login" element={<Login />} />
         <Route path="/recovery-pass" element={<RecoveryPass />} />
       </Routes>

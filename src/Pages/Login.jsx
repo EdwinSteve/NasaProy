@@ -23,7 +23,7 @@ export default function Login() {
     if (isLogin) {
       await loginUser(data.email, data.password);
       await setIsAuthenticated(true);
-      navigate('/');
+      navigate('/gallery');
     } else {
       await registerUser(data.email, data.password);
       setIsLogin(!isLogin);

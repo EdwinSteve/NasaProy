@@ -1,11 +1,15 @@
-import { Link } from 'react-router-dom';
-import { ChevronFirst, Heart, User } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { ChevronFirst, Heart, Image, Satellite, User } from 'lucide-react';
 import './Styles/Navbar.css';
 import { logoutUser } from '../Services/auth';
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 import AuthContext from '../Context/AuthContext';
 
 export default function Navbar() {
+
+  const location = useLocation();
+  const isGalleryPage = useMemo(() => location.pathname.startsWith('/gallery'), [location.pathname]);
+
   const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
 
   const handleLogout = async () => {
@@ -24,9 +28,14 @@ export default function Navbar() {
       </div>
 
       <ul className='links'>
-        {isAuthenticated && (
-          <Link to="/fav">
+        {isAuthenticated && isGalleryPage && (
+          <Link to="/favorites">
             <li className='link'><Heart /> Favorites</li>
+          </Link>
+        )}
+        {isAuthenticated && !isGalleryPage && (
+          <Link to="/gallery">
+            <li className='link'><Satellite /> Gallery</li>
           </Link>
         )}
         {!isAuthenticated && (
