@@ -1,17 +1,8 @@
 import { Link } from 'react-router-dom';
-import { ChevronFirst, Heart, User } from 'lucide-react';
+import { Heart, Orbit } from 'lucide-react';
 import './Styles/Navbar.css';
-import { logoutUser } from '../Services/auth';
-import { useContext } from 'react';
-import AuthContext from '../Context/AuthContext';
 
 export default function Navbar() {
-  const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
-
-  const handleLogout = async () => {
-    await logoutUser();
-    setIsAuthenticated(false);
-  }
 
   return (
     <nav className='navbar'>
@@ -24,19 +15,9 @@ export default function Navbar() {
       </div>
 
       <ul className='links'>
-        {isAuthenticated && (
-          <Link to="/fav">
-            <li className='link'><Heart /> Favorites</li>
-          </Link>
-        )}
-        {!isAuthenticated && (
-          <Link to="/login">
-            <li className='link'><User /> Login</li>
-          </Link>
-        )}
-        {isAuthenticated && (
-          <li className='link' onClick={() => handleLogout()}><ChevronFirst /> Logout</li>
-        )}
+        <Link to="/">
+          <li className='link'><Orbit /> Home</li>
+        </Link>
       </ul>
     </nav>
   );

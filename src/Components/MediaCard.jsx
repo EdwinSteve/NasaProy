@@ -1,13 +1,11 @@
 import { useState } from 'react';
 import './styles/MediaCard.css';
-import { Heart, Satellite, CalendarDaysIcon, Tag, ArrowRight } from 'lucide-react';
+import { Satellite, CalendarDaysIcon, Tag, ArrowRight } from 'lucide-react';
 import missions from '../Assets/missions';
 
 export default function MediaCard({ data }) {
-  const [liked, setLiked] = useState(false);
   const [flipped, setFlipped] = useState(false);
   const SRC_NULL = '/img_not_found.webp';
-  const COLOR_LIKE = '#ff3c6d';
   const missionInfo = missions[data.mission];
   
   return (
@@ -16,10 +14,6 @@ export default function MediaCard({ data }) {
         <div className='card-front'>
           <div className='cabezera-card'>
             <h2>{data.title}</h2>
-            <button className='heart-btn' onClick={(e) => { e.stopPropagation(); setLiked(!liked)} }>
-              <Heart color={liked ? COLOR_LIKE : 'currentColor'} 
-                fill={liked ? COLOR_LIKE : 'none'} />
-            </button>
           </div>
 
           <span className='card-mission'>
