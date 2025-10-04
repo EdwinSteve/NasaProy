@@ -5,8 +5,12 @@ import Filter from '../Components/Filter';
 import Paginator from '../Components/Paginator';
 import { useEffect, useState } from 'react';
 import { fetchDatasets } from '../Services/datasets';
+import { useSearchParams } from 'react-router-dom';
 
 export default function Gallery() {
+  const [searchParams] = useSearchParams();
+  const mission = searchParams.get("mission");
+
   const [datasets, setDatasets] = useState([]);
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState(null);
@@ -19,13 +23,14 @@ export default function Gallery() {
 
 
   useEffect(() => {
-    loadData({ ...filters, page, limit });
+    loadData({ ...filters, page, limit, mission });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, limit]);
 
   useEffect(() => {
     // initial load
-    loadData({ ...filters, page, limit });
+    console.log(mission);
+    loadData({ ...filters, page, limit, mission });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

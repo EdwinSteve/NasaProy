@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './styles/MediaCard.css';
 import { Satellite, CalendarDaysIcon, Tag, ArrowRight } from 'lucide-react';
-import missions from '../Assets/missions';
+import missions from '../assets/missions';
 
 export default function MediaCard({ data }) {
   const [flipped, setFlipped] = useState(false);
@@ -46,8 +46,6 @@ export default function MediaCard({ data }) {
 
         <div className='card-back'>
           <img className='sticker-mission' src={missionInfo.url_badge} />
-          <p>{missionInfo.description}</p>
-
           <p>
             Image Description...
           </p>

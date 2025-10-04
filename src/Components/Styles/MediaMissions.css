@@ -1,0 +1,37 @@
+.media-missions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  width: 100%;
+  color: var(--card-text-grey);
+  border: var(--muted) 1px solid;
+  border-radius: 8px;
+  background-color: var(--card);
+}
+
+.mission-img {
+  width: 255px;
+}
+
+.mission-stn { 
+  padding: 24px;
+}
+
+.mission-info {
+  margin: 14px 0;
+}
+
+.media-missions h2 {
+  font-size: 32px;
+}
+
+.media-missions p {
+  font-size: 16px;
+}
+
+.btn-redirect {
+  margin-top: 12px;
+  width: 100%;
+}

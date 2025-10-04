@@ -3,6 +3,7 @@ import Gallery from './Pages/Gallery';
 import Landing from './Pages/Landing';
 import Navbar from './Components/Navbar';
 import './App.css'
+import GalleryMissions from './Pages/GalleryMissions';
 
 function AppLayout() {
   return (
@@ -10,6 +11,7 @@ function AppLayout() {
       <Navbar />
       <Routes>
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/missions" element={<GalleryMissions />}></Route>
       </Routes>
     </>
   );
