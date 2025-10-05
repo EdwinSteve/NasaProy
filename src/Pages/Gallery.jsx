@@ -65,7 +65,7 @@ export default function Gallery() {
 
   return (
     <>
-      <Greet title={'Cosmic Gallery'} message={<>
+      <Greet title={'MOON GALLERY'} message={<>
         Explore stunning images captured by NASA missions across the cosmos.<br />
         Each card represents a unique glimpse into the universe.
       </>}/>

@@ -15,6 +15,7 @@
     "@mui/material": "^7.3.2",
     "dat.gui": "^0.7.9",
     "lucide-react": "^0.544.0",
+    "openseadragon": "^3.1.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-hook-form": "^7.63.0",
@@ -30,7 +31,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.4.0",
-    "vite": "^7.1.7",
-    "parcel": "^2.12.0"
+    "parcel": "^2.12.0",
+    "vite": "^7.1.7"
   }
 }

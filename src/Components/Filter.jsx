@@ -1,10 +1,11 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "./Styles/Filters.css";
+import "../assets/missions";
 
 /**
  * Filter component for gallery datasets.
  * - Button to open/close a horizontal panel.
- * - Supported fields: mission, title, created_at, created_at_from, created_at_to,
+ * - Supported fields: mission, title, created_at_from, created_at_to,
  *   center_latitude, center_longitude, limit.
  *
  * Props:
@@ -16,7 +17,6 @@ export default function Filter({ initialFilters = {}, onApply }) {
 
   const [mission, setMission] = useState(initialFilters.mission ?? "");
   const [title, setTitle] = useState(initialFilters.title ?? "");
-  const [createdAt, setCreatedAt] = useState(initialFilters.created_at ?? "");
   const [createdFrom, setCreatedFrom] = useState(initialFilters.created_at_from ?? "");
   const [createdTo, setCreatedTo] = useState(initialFilters.created_at_to ?? "");
   const [lat, setLat] = useState(
@@ -26,10 +26,6 @@ export default function Filter({ initialFilters = {}, onApply }) {
     initialFilters.center_longitude ?? (initialFilters.center_longitude === 0 ? 0 : "")
   );
   const [limit, setLimit] = useState(initialFilters.limit ?? 12);
-
-  // If exact date is used, disable range; if range is set, disable exact date.
-  const rangeDisabled = useMemo(() => Boolean(createdAt), [createdAt]);
-  const exactDisabled = useMemo(() => Boolean(createdFrom || createdTo), [createdFrom, createdTo]);
 
   const close = useCallback(() => setOpen(false), []);
   const openDrawer = useCallback(() => setOpen(true), []);
@@ -43,7 +39,6 @@ export default function Filter({ initialFilters = {}, onApply }) {
   }, [open, close]);
   
   function handleClearDates() {
-    setCreatedAt("");
     setCreatedFrom("");
     setCreatedTo("");
   }
@@ -51,7 +46,6 @@ export default function Filter({ initialFilters = {}, onApply }) {
   function handleClearAll() {
     setMission("");
     setTitle("");
-    setCreatedAt("");
     setCreatedFrom("");
     setCreatedTo("");
     setLat("");
@@ -70,11 +64,8 @@ export default function Filter({ initialFilters = {}, onApply }) {
     const f = {};
     if (mission) f.mission = mission.trim();
     if (title) f.title = title.trim();
-    if (createdAt) f.created_at = createdAt; // YYYY-MM-DD format
-    if (!createdAt) {
-      if (createdFrom) f.created_at_from = createdFrom;
-      if (createdTo) f.created_at_to = createdTo;
-    }
+    if (createdFrom) f.created_at_from = createdFrom;
+    if (createdTo) f.created_at_to = createdTo;
     if (lat !== "" && !Number.isNaN(Number(lat))) f.center_latitude = Number(lat);
     if (lng !== "" && !Number.isNaN(Number(lng))) f.center_longitude = Number(lng);
     if (limit) f.limit = Number(limit);
@@ -87,7 +78,7 @@ export default function Filter({ initialFilters = {}, onApply }) {
     setOpen(false);
   }
 
-  // Soft validations on blur
+  // Soft validations
   function onBlurLat() {
     const v = clampNumberOrEmpty(lat, -90, 90);
     setLat(v);
@@ -101,12 +92,11 @@ export default function Filter({ initialFilters = {}, onApply }) {
     setLimit(v || 12);
   }
 
-  // Sync when initialFilters change (optional)
+  // Sync with props
   useEffect(() => {
     if (!initialFilters) return;
     setMission(initialFilters.mission ?? "");
     setTitle(initialFilters.title ?? "");
-    setCreatedAt(initialFilters.created_at ?? "");
     setCreatedFrom(initialFilters.created_at_from ?? "");
     setCreatedTo(initialFilters.created_at_to ?? "");
     setLat(
@@ -120,7 +110,7 @@ export default function Filter({ initialFilters = {}, onApply }) {
 
   return (
     <>
-      {/* Fixed floating button in the bottom right corner */}
+      {/* Floating Button */}
       <button
         className="filter-fab"
         type="button"
@@ -155,13 +145,20 @@ export default function Filter({ initialFilters = {}, onApply }) {
         <div className="drawer-content">
           <div className="filter-field">
             <label htmlFor="mission">Mission</label>
-            <input
+            <select
               id="mission"
-              type="text"
-              placeholder="Apollo 11, LRO LROC…"
               value={mission}
               onChange={(e) => setMission(e.target.value)}
-            />
+            >
+              <option value="KARI ShadowCam">KARI ShadowCam</option>
+              <option value="LRO LROC">LRO LROC</option>
+              <option value="Apollo 11">Apollo 11</option>
+              <option value="Apollo 12">Apollo 12</option>
+              <option value="Apollo 14">Apollo 14</option>
+              <option value="Apollo 15">Apollo 15</option>
+              <option value="Apollo 16">Apollo 16</option>
+              <option value="Apollo 17">Apollo 17</option>
+            </select>
           </div>
 
           <div className="filter-field">
@@ -176,26 +173,12 @@ export default function Filter({ initialFilters = {}, onApply }) {
           </div>
 
           <div className="filter-field">
-            <label htmlFor="createdAt">Exact date</label>
-            <input
-              id="createdAt"
-              type="date"
-              value={createdAt}
-              onChange={(e) => setCreatedAt(e.target.value)}
-              disabled={exactDisabled}
-              title={exactDisabled ? "There is an active range" : ""}
-            />
-          </div>
-
-          <div className="filter-field">
             <label>Date range</label>
             <div className="filter-dates">
               <input
                 type="date"
                 value={createdFrom}
                 onChange={(e) => setCreatedFrom(e.target.value)}
-                disabled={rangeDisabled}
-                title={rangeDisabled ? "Exact date is active" : ""}
                 placeholder="From"
               />
               <span className="date-sep">→</span>
@@ -203,8 +186,6 @@ export default function Filter({ initialFilters = {}, onApply }) {
                 type="date"
                 value={createdTo}
                 onChange={(e) => setCreatedTo(e.target.value)}
-                disabled={rangeDisabled}
-                title={rangeDisabled ? "Exact date is active" : ""}
                 placeholder="Until"
               />
             </div>

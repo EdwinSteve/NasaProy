@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@font-face {
+  font-family: 'Nasa';
+  src: url('/NasalizationRg.ttf');
+}
 
 :root {
   --title: #3381ff;
@@ -14,7 +19,7 @@
   --pild-bg: #363D49;
   --card: #242529;
   --muted: #353a45;
-  --space-grotesk: "Space Grotesk", sans-serif;
+  --nasa: "Nasa", sans-serif;
   --inter: "Inter", sans-serif;
   --monospace: monospace
 }
@@ -26,6 +31,7 @@
 }
 
 body {
+  font-size: 16px;
   text-decoration: none;
   margin: 0;
   font-family: var(--monospace);

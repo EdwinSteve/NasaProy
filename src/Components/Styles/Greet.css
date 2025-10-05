@@ -3,7 +3,7 @@
 }
 
 .greet h1 {
-  font-family: var(--space-grotesk);
+  font-family: var(--nasa);
   margin-bottom: 12px;
   font-size: 3rem;
   color: var(--title);
@@ -12,6 +12,6 @@
 .greet p {
   padding: 12px;
   font-family: var(--inter);
-  font-size: 24px; 
+  font-size: 32px; 
   color: white; 
 }
