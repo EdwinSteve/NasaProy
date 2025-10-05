@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Playground</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/openseadragon.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #111;
+    }
+
+    #openseadragon1 {
+      border: 2px solid #fff;
+      width: 80vw;
+      height: 80vh;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    }
+  </style>
+</head>
+<body>
+  <div id="openseadragon1"></div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const tilesUrl = params.get("tilesUrl");
+    const width = parseInt(params.get("width"));
+    const height = parseInt(params.get("height"));
+
+    if (!tilesUrl || !width || !height) {
+      document.body.innerHTML = `
+        <div style="color:white; text-align:center">
+          <h2>🚨 Faltan parámetros</h2>
+          <p>Usa la URL con los siguientes parámetros:</p>
+          <code>?tilesUrl=URL&width=10000&height=5000</code>
+        </div>`;
+    } else {
+
+      OpenSeadragon({
+        id: "openseadragon1",
+        prefixUrl: "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/images/",
+        tileSources: {
+          type: "zoomifytileservice",
+          width,
+          height,
+          tilesUrl,
+        },
+      });
+    }
+  </script>
+</body>
+</html>
