@@ -3,6 +3,7 @@ import ContainerMediaCard from '../Components/ContainerMediaCard';
 import Greet from '../Components/Greet';
 import Filter from '../Components/Filter';
 import Paginator from '../Components/Paginator';
+import GalleryLoader from '../Components/GalleryLoader';
 import { useEffect, useState } from 'react';
 import { fetchDatasets } from '../Services/datasets';
 import { useSearchParams } from 'react-router-dom';
@@ -65,15 +66,19 @@ export default function Gallery() {
 
   return (
     <>
-      <Greet title={'MOON GALLERY'} message={<>
-        Explore stunning images captured by NASA missions across the cosmos.<br />
-        Each card represents a unique glimpse into the universe.
-      </>}/>
+      
+      {loading && <GalleryLoader />}
+
+      {!loading && err && <p style={{ color: '#f87171' }}>Error: {err}</p>}
 
       <Filter initialFilters={filters} onApply={handleApplyFilters} />
 
-      {loading && <p style={{opacity:.8}}>Cargando…</p>}
-      {err && <p style={{color:'#f87171'}}>Error: {err}</p>}
+      {!loading && (
+        <>
+          <Greet title={'MOON GALLERY'} message={<>
+        Explore stunning images captured by NASA missions across the cosmos.<br />
+        Each card represents a unique glimpse into the universe.
+      </>}/>
 
       <ContainerMediaCard>
         {datasets.map((item) => (
@@ -96,6 +101,8 @@ export default function Gallery() {
           loadData({ ...filters, page: 1, limit: l });
         }}
       />
+          </>
+      )}
     </>
   );
 }

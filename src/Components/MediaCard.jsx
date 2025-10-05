@@ -46,8 +46,9 @@ export default function MediaCard({ data }) {
 
         <div className='card-back'>
           <img className='sticker-mission' src={missionInfo.url_badge} />
+           <p className='ai-note'>AI content generated. May contain inaccuracies.</p>
           <p>
-            Image Description...
+            {data.description_image}
           </p>
         </div>
       </div>

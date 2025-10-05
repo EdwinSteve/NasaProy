@@ -5,6 +5,17 @@
   position: relative;
 }
 
+.ai-note{
+  margin: 0 0 .35rem;
+  font-size: .75rem;
+  opacity: .75;
+  letter-spacing: .02em;
+}
+.ai-note::before{
+  content: "⚠ ";
+}
+
+
 .card-inner {
   position: relative;
   width: 100%;
