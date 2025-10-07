@@ -15,7 +15,7 @@ export default function Navbar() {
       </div>
 
       <ul className='links'>
-        <Link to="/">
+        <Link to="http://localhost:1234/">
           <li className='link'><Orbit /> Home</li>
         </Link>
       </ul>

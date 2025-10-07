@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './styles/MediaCard.css';
+import './Styles/MediaCard.css';
 import { Satellite, CalendarDaysIcon, Tag, ArrowRight } from 'lucide-react';
 import missions from '../assets/missions';
 
