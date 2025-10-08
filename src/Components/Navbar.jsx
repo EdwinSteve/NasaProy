@@ -15,7 +15,7 @@ export default function Navbar() {
       </div>
 
       <ul className='links'>
-        <Link to="http://localhost:1234/">
+        <Link to="https://frontthreejs.onrender.com/">
           <li className='link'><Orbit /> Home</li>
         </Link>
       </ul>

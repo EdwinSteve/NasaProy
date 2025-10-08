@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: react-vite-app
+    ports:
+      - "5173:80"          # Cambiado: el contenedor escucha en 80 (Nginx) y el host usa 5173
+    restart: unless-stopped

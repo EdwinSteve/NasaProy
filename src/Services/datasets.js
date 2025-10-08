@@ -23,7 +23,7 @@ export const fetchDatasets = async ({
   if (center_longitude) params.append("center_longitude", center_longitude);
 
   try {
-    const response = await fetch(`http://localhost:4000/api/v1/data?${params.toString()}`);
+    const response = await fetch(`https://space-apps-nasa-2025.onrender.com/api/v1/data?${params.toString()}`);
     if (!response.ok) throw new Error("Error en la petición");
     const result = await response.json();
     return result;
